@@ -1,0 +1,24 @@
+.feature-post-container {
+  display: flex;
+
+  .feature-image-container {
+    width: 60%;
+    padding-right: 24px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .feature-text-container {
+    width: 40%;
+
+    .date {
+      font-size: 12px;
+    }
+
+    .feature-title {
+      font-size: 48px;
+    }
+  }
+}
