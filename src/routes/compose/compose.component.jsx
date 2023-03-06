@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createPostDocument } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   title: "",
@@ -8,22 +10,19 @@ const defaultFormFields = {
 const Compose = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { title, body } = formFields;
+  const navigate = useNavigate();
 
   const resetFormFields = () => setFormFields(defaultFormFields);
-
-  const [posts, setPosts] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newPost = {
-      title,
-      body,
-      postedAt: new Date(),
-    };
+    const postDocRef = createPostDocument(title, body);
 
-    setPosts([...posts, newPost]);
-    resetFormFields();
+    if (postDocRef) {
+      resetFormFields();
+      navigate("/");
+    }
   };
 
   const handleChange = (e) => {

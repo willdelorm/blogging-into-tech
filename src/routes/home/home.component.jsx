@@ -1,5 +1,6 @@
 import FeaturePostPreview from "../../components/feature-post-preview/feature-post-preview.component";
 import PreviewPost from "../../components/post-preview/post-preview.component";
+import { getPostDocuments } from "../../utils/firebase/firebase.utils";
 
 import "./home.styles.scss";
 
@@ -61,6 +62,9 @@ for (let i = 1; i < tempPosts.length; i++) {
 }
 
 const Home = () => {
+  const postDocumentsArray = getPostDocuments();
+  console.log(postDocumentsArray);
+
   return (
     <main className="home-container">
       <h1>Blogging Into Tech</h1>

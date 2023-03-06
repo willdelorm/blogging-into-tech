@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVcvp_mXXFS4mCwwMl9MZDfC5PZYjxErI",
@@ -31,4 +32,30 @@ export const signOutUser = async () => {
 
 export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback);
+};
+
+const db = getFirestore();
+
+export const createPostDocument = async (title, body) => {
+  try {
+    return await addDoc(collection(db, "posts"), {
+      title,
+      body,
+      postedAt: new Date(),
+    });
+  } catch (error) {
+    console.log("Error adding document:", error);
+  }
+};
+
+export const getPostDocuments = async () => {
+  const querySnapshot = await getDocs(collection(db, "posts"));
+
+  const postMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, body, postedAt } = docSnapshot.data();
+    acc = [...acc, { title, body, postedAt }];
+    return acc;
+  }, []);
+
+  return postMap;
 };
