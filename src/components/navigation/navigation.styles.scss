@@ -12,5 +12,12 @@
 
   .nav-menu {
     display: flex;
+
+    a {
+      color: black;
+      list-style: none;
+      margin: 0 12px;
+      text-decoration: none;
+    }
   }
 }

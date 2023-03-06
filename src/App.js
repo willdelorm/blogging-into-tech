@@ -1,14 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+
 import Navigation from "./components/navigation/navigation.component";
-import Compose from "./pages/compose/compose.component";
-import Home from "./pages/home/home.component";
+import Compose from "./routes/compose/compose.component";
+import Home from "./routes/home/home.component";
 
 const App = () => {
   return (
-    <div className="App">
-      <Navigation />
-      {/* <Home /> */}
-      <Compose />
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="compose" element={<Compose />} />
+      </Route>
+    </Routes>
   );
 };
 
