@@ -1,15 +1,18 @@
 import "./post-preview.styles.scss";
 
-const PreviewPost = ({ post }) => {
+const PostPreview = ({ post }) => {
   const { title, body, imageUrl, postedAt } = post;
+
   return (
     <div className="post-container">
-      <img src={imageUrl} alt="" />
-      <p className="date">{postedAt}</p>
-      <p className="title">{title}</p>
-      <p className="preview-text">{body}</p>
+      <img src="https://picsum.photos/300/200" alt="" />
+      <div className="text-container">
+        <p className="date">{postedAt}</p>
+        <p className="title">{title}</p>
+        <p className="preview-text">{body.split(" ", 50).join(" ")}...</p>
+      </div>
     </div>
   );
 };
 
-export default PreviewPost;
+export default PostPreview;

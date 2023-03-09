@@ -41,21 +41,17 @@ export const createPostDocument = async (title, body) => {
     return await addDoc(collection(db, "posts"), {
       title,
       body,
-      postedAt: new Date(),
+      postedAt: new Date().toDateString(),
     });
   } catch (error) {
-    console.log("Error adding document:", error);
+    console.error("Error adding document:", error);
   }
 };
 
 export const getPostDocuments = async () => {
   const querySnapshot = await getDocs(collection(db, "posts"));
 
-  const postMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, body, postedAt } = docSnapshot.data();
-    acc = [...acc, { title, body, postedAt }];
-    return acc;
-  }, []);
-
-  return postMap;
+  return querySnapshot.docs.map((docSnapshot) => {
+    return docSnapshot.data();
+  });
 };
