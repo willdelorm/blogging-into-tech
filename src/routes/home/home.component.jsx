@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getPostDocuments } from "../../utils/firebase/firebase.utils";
 
 import PostPreview from "../../components/post-preview/post-preview.component";
+import FeaturePostPreview from "../../components/feature-post-preview/feature-post-preview.component";
 
 import "./home.styles.scss";
 
@@ -20,8 +21,9 @@ const Home = () => {
   return (
     <main className="home-container">
       <h1>Blogging Into Tech</h1>
+      {postsMap.length ? <FeaturePostPreview post={postsMap[0]} /> : null}
       <div className="posts-container">
-        {postsMap.map((post, index) => (
+        {postsMap.slice(1).map((post, index) => (
           <PostPreview key={index} post={post} />
         ))}
       </div>

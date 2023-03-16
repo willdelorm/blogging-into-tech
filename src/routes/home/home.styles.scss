@@ -1,15 +1,9 @@
 .home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-
-  h1 {
-    font-size: 72px;
-  }
+  margin: 48px 8%;
 
   .posts-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    margin-top: 32px;
   }
 }

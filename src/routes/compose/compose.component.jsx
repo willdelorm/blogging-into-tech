@@ -2,14 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPostDocument } from "../../utils/firebase/firebase.utils";
 
+import "./compose.styles.scss";
+
 const defaultFormFields = {
   title: "",
   body: "",
+  image: "",
 };
 
 const Compose = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { title, body } = formFields;
+  const { title, body, image } = formFields;
   const navigate = useNavigate();
 
   const resetFormFields = () => setFormFields(defaultFormFields);
@@ -17,7 +20,7 @@ const Compose = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const postDocRef = createPostDocument(title, body);
+    const postDocRef = createPostDocument(title, body, image);
 
     if (postDocRef) {
       resetFormFields();
@@ -36,33 +39,46 @@ const Compose = () => {
 
   return (
     <main className="compose-container">
-      <h1>Compose</h1>
+      <h1>Compose a new post!</h1>
       <form onSubmit={handleSubmit}>
-        <div className="title-container">
+        <div className="input-container">
           <label className="form-label">Title</label>
           <input
             type="text"
-            required
             className="form-control"
             onChange={handleChange}
             name="title"
             value={title}
+            required
           />
         </div>
-        <div className="body-container">
+        <div className="input-container">
           <label className="form-label">Body</label>
           <textarea
-            required
             className="form-control"
             onChange={handleChange}
             name="body"
             value={body}
-            rows="3"
+            rows="20"
+            required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Publish
-        </button>
+        <div className="input-container">
+          <label className="form-label">Image URL</label>
+          <input
+            type="url"
+            className="form-control"
+            onChange={handleChange}
+            name="image"
+            value={image}
+            required
+          />
+        </div>
+        <div className="button-container">
+          <button type="submit" className="btn btn-primary">
+            Publish
+          </button>
+        </div>
       </form>
     </main>
   );

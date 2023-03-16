@@ -5,11 +5,14 @@ const PostPreview = ({ post }) => {
 
   return (
     <div className="post-container">
-      <img src="https://picsum.photos/300/200" alt="" />
+      <div
+        className="image-container"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      ></div>
       <div className="text-container">
         <p className="date">{postedAt}</p>
-        <p className="title">{title}</p>
-        <p className="preview-text">{body.split(" ", 50).join(" ")}...</p>
+        <h2>{title}</h2>
+        <p>{body.split(" ", 15).join(" ")}...</p>
       </div>
     </div>
   );

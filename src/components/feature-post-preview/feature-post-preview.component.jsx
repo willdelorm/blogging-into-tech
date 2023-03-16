@@ -2,15 +2,17 @@ import "./feature-post-preview.styles.scss";
 
 const FeaturePostPreview = ({ post }) => {
   const { title, body, imageUrl, postedAt } = post;
+
   return (
     <div className="feature-post-container">
-      <div className="feature-image-container">
-        <img src={imageUrl} alt="" />
-      </div>
-      <div className="feature-text-container">
+      <div
+        className="image-container"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      ></div>
+      <div className="text-container">
         <p className="date">{postedAt}</p>
-        <p className="feature-title">{title}</p>
-        <p className="preview-text">{body}</p>
+        <h2>{title}</h2>
+        <p>{body.split(" ", 15).join(" ")}...</p>
       </div>
     </div>
   );

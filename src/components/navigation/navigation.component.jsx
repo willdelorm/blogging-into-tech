@@ -12,22 +12,23 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="navigation-container">
-        <div className="logo-icon-container">
-          <img src="https://picsum.photos/48" alt="" />
+      <div className="navigation-container">
+        <div className="logo-container">
+          <span>D</span>
         </div>
-        <div className="nav-menu-container">
-          <ul className="nav-menu">
-            <Link to="/">Home</Link>
-            <Link to="/compose">Compose</Link>
-            {currentUser ? (
-              <div onClick={signOutUser}>Sign Out</div>
-            ) : (
-              <Link to="/login">Sign In</Link>
-            )}
-          </ul>
+
+        <div className="nav-menu">
+          <Link to="/">Home</Link>
+          <Link to="/compose">Compose</Link>
+          {currentUser ? (
+            <div className="nav-item" onClick={signOutUser}>
+              Sign Out
+            </div>
+          ) : (
+            <Link to="/login">Sign In</Link>
+          )}
         </div>
-      </nav>
+      </div>
       <Outlet />
     </>
   );

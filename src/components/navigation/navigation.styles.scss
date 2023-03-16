@@ -1,23 +1,43 @@
 .navigation-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   padding: 16px;
 
-  .logo-icon-container {
-    img {
-      border-radius: 100%;
+  .logo-container {
+    background: linear-gradient(45deg, #fd2b88, #fd6734);
+    border-radius: 50%;
+    padding: 12px;
+
+    span {
+      color: white;
+      font-weight: bold;
     }
   }
 
   .nav-menu {
     display: flex;
+    gap: 48px;
+    font-size: 14px;
+    text-transform: uppercase;
 
-    a {
-      color: black;
+    a,
+    .nav-item {
+      border: 2px solid rgba(253, 43, 136, 0);
+      color: #c5c5c5;
+      font-weight: bold;
+      letter-spacing: 1px;
       list-style: none;
-      margin: 0 12px;
+      padding: 12px 0;
       text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover,
+    .nav-item:hover {
+      border-bottom: 2px solid #fd2b88;
+      color: #fd2b88;
     }
   }
 }

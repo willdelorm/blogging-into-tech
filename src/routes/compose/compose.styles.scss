@@ -1,0 +1,47 @@
+.compose-container {
+  margin: 48px 8%;
+
+  form {
+    margin: 0 auto;
+    padding: 24px 12px;
+    max-width: 800px;
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+      width: 100%;
+
+      label {
+        margin-bottom: 8px;
+      }
+
+      input,
+      textarea {
+        border: none;
+        border-radius: 4px;
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        padding: 4px 8px;
+        resize: none;
+      }
+    }
+
+    .button-container {
+      text-align: center;
+
+      .btn {
+        background-color: #fd2989;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin: 20px auto;
+        padding: 10px 20px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
