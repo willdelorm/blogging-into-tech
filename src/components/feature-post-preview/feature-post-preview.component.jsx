@@ -13,6 +13,9 @@ const FeaturePostPreview = ({ post }) => {
         <p className="date">{postedAt}</p>
         <h2>{title}</h2>
         <p>{body.split(" ", 15).join(" ")}...</p>
+        <div>
+          <a href="/">Read More</a>
+        </div>
       </div>
     </div>
   );

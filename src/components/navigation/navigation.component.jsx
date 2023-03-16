@@ -19,6 +19,7 @@ const Navigation = () => {
 
         <div className="nav-menu">
           <Link to="/">Home</Link>
+          <Link to="/posts">Posts</Link>
           <Link to="/compose">Compose</Link>
           {currentUser ? (
             <div className="nav-item" onClick={signOutUser}>

@@ -7,8 +7,12 @@
 
   .logo-container {
     background: linear-gradient(45deg, #fd2b88, #fd6734);
-    border-radius: 50%;
-    padding: 12px;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     span {
       color: white;
