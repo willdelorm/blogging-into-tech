@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./feature-post-preview.styles.scss";
 
 const FeaturePostPreview = ({ post }) => {
@@ -14,7 +15,7 @@ const FeaturePostPreview = ({ post }) => {
         <h2>{title}</h2>
         <p>{body.split(" ", 15).join(" ")}...</p>
         <div>
-          <a href="/">Read More</a>
+          <Link to="/">Read More</Link>
         </div>
       </div>
     </div>
