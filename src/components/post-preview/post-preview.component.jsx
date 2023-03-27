@@ -1,16 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import "./post-preview.styles.scss";
 
 const PostPreview = ({ post }) => {
   const { title, body, imageUrl, postedAt } = post;
-  const navigate = useNavigate();
 
   const route = title.split(" ").join("-").toLowerCase();
 
-  const onNavigateHandler = () => navigate(`posts/${route}`);
-
   return (
-    <div className="post-container" onClick={onNavigateHandler}>
+    <div className="post-container">
       <div
         className="image-container"
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -20,7 +16,7 @@ const PostPreview = ({ post }) => {
         <h2>{title}</h2>
         <p>{body.split(" ", 15).join(" ")}...</p>
         <div>
-          <a href="/">Read More</a>
+          <a href={`/posts/${route}`}>Read More</a>
         </div>
       </div>
     </div>

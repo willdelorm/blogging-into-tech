@@ -7,12 +7,12 @@ import "./compose.styles.scss";
 const defaultFormFields = {
   title: "",
   body: "",
-  image: "",
+  imageUrl: "",
 };
 
 const Compose = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { title, body, image } = formFields;
+  const { title, body, imageUrl } = formFields;
   const navigate = useNavigate();
 
   const resetFormFields = () => setFormFields(defaultFormFields);
@@ -20,7 +20,7 @@ const Compose = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const postDocRef = createPostDocument(title, body, image);
+    const postDocRef = createPostDocument(title, body, imageUrl);
 
     if (postDocRef) {
       resetFormFields();
@@ -69,8 +69,8 @@ const Compose = () => {
             type="url"
             className="form-control"
             onChange={handleChange}
-            name="image"
-            value={image}
+            name="imageUrl"
+            value={imageUrl}
             required
           />
         </div>

@@ -9,10 +9,16 @@ import { PostsContext } from "../../contexts/posts.context";
 const Home = () => {
   const { posts } = useContext(PostsContext);
 
+  console.log(posts);
+
   return (
     <main className="home-container">
       <h1>Blogging Into Tech</h1>
-      {posts.length ? <FeaturePostPreview post={posts[0]} /> : null}
+      {posts.length ? (
+        <FeaturePostPreview post={posts[0]} />
+      ) : (
+        "Nothing written here yet"
+      )}
       <div className="posts-container">
         {posts.slice(1, 6).map((post, index) => (
           <PostPreview key={index} post={post} />

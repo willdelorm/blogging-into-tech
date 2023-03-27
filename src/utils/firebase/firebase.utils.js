@@ -36,12 +36,19 @@ export const onAuthStateChangedListener = (callback) => {
 
 const db = getFirestore();
 
-export const createPostDocument = async (title, body) => {
+export const createPostDocument = async (title, body, imageUrl) => {
+  if (!title || !body || !imageUrl) return;
+
+  const route = title.toLowerCase().split(" ").join("-");
+
   try {
     return await addDoc(collection(db, "posts"), {
+      id: route,
       title,
       body,
+      imageUrl,
       postedAt: new Date().toDateString(),
+      route,
     });
   } catch (error) {
     console.error("Error adding document:", error);
